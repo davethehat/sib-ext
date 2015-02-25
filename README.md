@@ -16,6 +16,7 @@ the directory structure used by plgToMSS for ease of study and development.
 Note that methods whose names start with underscores are not inteded to be used in code outside Ext
 
 ## String functions
+All string functions return new strings - the passed strings are unchanged.
 
 ```javascript
 // Trim spaces from left and right
@@ -41,5 +42,29 @@ result = Ext.CenterC(string, length, paddingCharacter);
 ```
 
 ## Array functions - contents maniplulation
+
+All array functions take a SparseArray as first argument. This set of functions
+change the contents of the array.
+
+```javascript
+// Insert an item into array at position. Shifts contents to make room if necessary
+// Returns the array
+Ext.Insert(array, position,item);
+
+// Remove an item from an array. Adjusts contents and length. Has no effect if
+// position is equal to or greater than array length. Returns the array
+Ext.Remove(array, position);
+
+// Pluck an item from an array at position, removing the item and returning it.
+// Returns null if position >= array length.
+item = Ext.Pluck(array, position);
+
+// Shift an item from the beginning of the array, removing it and returning it.
+// Returns null if array is empty.
+item = Ext.Shift(array);
+
+// Unshift an item - insert it at the beginning of the array. Returns the item.
+item = Ext.Unshift(array, item);
+```
 
 ## Array functions - map, reduce and friends
